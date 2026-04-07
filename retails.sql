@@ -36,8 +36,6 @@ create table order_details(
 );
 
 -- inserting some data
-
-
 insert into customers values
 (1,'Harshini','Hyderabad'),
 (2,'Ravi','Chennai'),
@@ -74,8 +72,6 @@ insert into order_details values
 (1004,105,3);
 
 select * from order_details;
-
-
 -- checking which products are selling more
 
 select p.name, sum(od.quantity) total_sold
@@ -95,7 +91,6 @@ group by c.name
 order by total_spent desc;
 
 -- monthly revenue calculation
-
 select month(o.order_date) m,
 sum(p.price * od.quantity) revenue
 from orders o
@@ -116,7 +111,6 @@ from customers c
 left join orders o on c.customer_id = o.customer_id
 where o.order_id is null;
 
-
 -- city wise revenue 
 select c.city,
 sum(p.price * od.quantity) revenue
@@ -133,7 +127,6 @@ group by customer_id
 having count(order_id) > 1;
 
 -- small update part
-
 alter table customers add status varchar(10);
 
 -- marking inactive users manually
